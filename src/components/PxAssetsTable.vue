@@ -1,7 +1,7 @@
 <template>
   <table>
     <thead>
-      <tr class="bg-gray-100 border-b-2 border-gray-400">
+      <tr class="bg-green-400 border-b-2 border-gray-400">
         <th></th>
         <th :class="{ up: this.sortOrder === 1, down: this.sortOrder === -1 }">
           <span @click="changeSortOrder" class="underline cursor-pointer"
@@ -14,7 +14,7 @@
         <th>Variación 24hs</th>
         <td class="hidden sm:block">
           <input
-            class="bg-gray-100 focus:outline-none border-b border-gray-400 py-2 px-4 block w-full appearance-none leading-normal"
+            class="bg-transparent focus:outline-none border-b placeholder-gray-700::placeholder border-gray-600 py-2 px-4 block w-full appearance-none leading-normal"
             id="filter"
             placeholder="Buscar..."
             type="text"
@@ -27,7 +27,7 @@
       <tr
         v-for="a in filteredAssets"
         :key="a.id"
-        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-green-200"
       >
         <td>
           <img
@@ -38,7 +38,7 @@
             :alt="a.name"
           />
         </td>
-        <td># {{ a.rank }}</td>
+        <td class="text-gray-600"># {{ a.rank }}</td>
         <td>
           <router-link
             class="hover:underline text-green-600"
@@ -50,8 +50,8 @@
             {{ a.symbol }}
           </small>
         </td>
-        <td>{{ a.priceUsd | dollar }}</td>
-        <td>{{ a.marketCapUsd | dollar }}</td>
+        <td class="text-gray-600">{{ a.priceUsd | dollar }}</td>
+        <td class="text-gray-600">{{ a.marketCapUsd | dollar }}</td>
         <td
           :class="
             a.changePercent24Hr.includes('-')
