@@ -83,18 +83,20 @@
         :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
       />
 
-      <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
+      <h3 class="text-xl my-10 text-gray-600">Mejores Ofertas de Cambio</h3>
       <table>
         <tr
           v-for="m in markets"
           :key="`${m.exchangeId}-${m.priceUsd}`"
-          class="border-b"
+          class="border-b text-gray-600"
         >
-          <td>
+          <td class="text-gray-600">
             <b>{{ m.exchangeId }}</b>
           </td>
-          <td>{{ m.priceUsd | dollar }}</td>
-          <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
+          <td class="text-gray-600">{{ m.priceUsd | dollar }}</td>
+          <td class="text-gray-600">
+            {{ m.baseSymbol }} / {{ m.quoteSymbol }}
+          </td>
           <td>
             <px-button
               :is-loading="m.isLoading || false"
@@ -106,6 +108,7 @@
             <a v-else class="hover:underline text-green-600" target="_blanck">{{
               m.url
             }}</a>
+            <!-- <a v-if="m.url === undefined">No hay link disponible</a> -->
           </td>
         </tr>
       </table>
