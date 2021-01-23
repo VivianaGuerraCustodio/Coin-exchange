@@ -14,7 +14,7 @@
             :alt="asset.name"
             class="w-20 h-20 mr-5"
           />
-          <h1 class="text-5xl">
+          <h1 class="text-5xl text-white">
             {{ asset.name }}
             <small class="sm:mr-2 text-gray-500">{{ asset.symbol }}</small>
           </h1>
@@ -24,19 +24,19 @@
           <ul>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Ranking</b>
-              <span>#{{ asset.rank }}</span>
+              <span class="text-white">#{{ asset.rank }}</span>
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Precio actual</b>
-              <span>{{ asset.priceUsd | dollar }}</span>
+              <span class="text-white">{{ asset.priceUsd | dollar }}</span>
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Precio más bajo</b>
-              <span>{{ min | dollar }}</span>
+              <span class="text-white">{{ min | dollar }}</span>
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Precio más alto</b>
-              <span>{{ max | dollar }}</span>
+              <span class="text-white">{{ max | dollar }}</span>
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Precio Promedio</b>
@@ -44,7 +44,9 @@
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Variación 24hs</b>
-              <span>{{ asset.changePercent24Hr | percent }}%</span>
+              <span class="text-white"
+                >{{ asset.changePercent24Hr | percent }}%</span
+              >
             </li>
           </ul>
         </div>
@@ -69,7 +71,7 @@
             </label>
           </div>
 
-          <span class="text-xl">
+          <span class=" custom_span px-4 py-2 text-white text-xl">
             {{ convertResult }} {{ fromUsd ? asset.symbol : 'USD' }}
           </span>
         </div>
@@ -211,5 +213,9 @@ export default {
 td {
   padding: 10px;
   text-align: center;
+}
+.custom_span {
+  border-radius: 0.25rem;
+  background-color: #48bb78 !important;
 }
 </style>
