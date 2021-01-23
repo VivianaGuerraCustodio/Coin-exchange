@@ -40,7 +40,7 @@
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Precio Promedio</b>
-              <span>{{ avg | dollar }}</span>
+              <span class="text-white">{{ avg | dollar }}</span>
             </li>
             <li class="flex justify-between">
               <b class="text-gray-600 mr-10 uppercase">Variación 24hs</b>
